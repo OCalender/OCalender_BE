@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Table(name = "members")
 public class Member {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private Long idx;
 
     private String nickname;
@@ -31,6 +31,7 @@ public class Member {
     private String password;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private MemberRole role;
 
     @CreatedDate

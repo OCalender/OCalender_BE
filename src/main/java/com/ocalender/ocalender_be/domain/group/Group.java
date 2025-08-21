@@ -1,5 +1,6 @@
 package com.ocalender.ocalender_be.domain.group;
 
+import com.ocalender.ocalender_be.domain.group.groupclosure.GroupClosure;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -19,11 +20,9 @@ public class Group {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Column(nullable = false)
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true) // 영속성 작업 전파 및 고아 객체 삭제
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY) // 영속성 작업 전파 및 고아 객체 삭제
     private GroupMembership groupMembership;
 
-    @Column(nullable = false)
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true) // 영속성 작업 전파 및 고아 객체 삭제
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY) // 영속성 작업 전파 및 고아 객체 삭제
     private GroupClosure groupClosure;
 }

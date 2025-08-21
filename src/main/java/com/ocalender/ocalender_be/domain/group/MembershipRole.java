@@ -1,6 +1,6 @@
 package com.ocalender.ocalender_be.domain.group;
 
-public enum GroupRole {
+public enum MembershipRole {
     MY,
     OWNER,
     MASTER,
