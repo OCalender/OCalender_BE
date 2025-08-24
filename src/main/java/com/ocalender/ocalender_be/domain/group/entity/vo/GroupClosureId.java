@@ -1,4 +1,4 @@
-package com.ocalender.ocalender_be.domain.group.groupclosure;
+package com.ocalender.ocalender_be.domain.group.entity.vo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

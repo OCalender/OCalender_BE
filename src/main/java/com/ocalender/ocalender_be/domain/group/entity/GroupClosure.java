@@ -1,6 +1,6 @@
-package com.ocalender.ocalender_be.domain.group.groupclosure;
+package com.ocalender.ocalender_be.domain.group.entity;
 
-import com.ocalender.ocalender_be.domain.group.Group;
+import com.ocalender.ocalender_be.domain.group.entity.vo.GroupClosureId;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class GroupClosure {
 
     @EmbeddedId
+    @Column(nullable = false, unique = true)
     private GroupClosureId idx; // 임베디드 id로 조상과 자손 테이블을 합쳐 embeddedid로 합쳐 하나의 컬럼 생성
 
     @ManyToOne(fetch = FetchType.LAZY) @MapsId("ancestorId")

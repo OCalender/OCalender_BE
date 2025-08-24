@@ -1,5 +1,8 @@
-package com.ocalender.ocalender_be.domain.member;
+package com.ocalender.ocalender_be.domain.member.entity;
 
+import com.ocalender.ocalender_be.domain.member.entity.vo.Email;
+import com.ocalender.ocalender_be.domain.member.entity.vo.Nickname;
+import com.ocalender.ocalender_be.domain.member.entity.vo.Password;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -17,18 +20,18 @@ import java.time.LocalDateTime;
 @Table(name = "members")
 public class Member {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private Long idx;
 
-    private String nickname;
+    private Nickname nickname;
 
     private String profileUrl;
 
     @Column(nullable = false, unique = true)
-    private String email;
+    private Email email;
 
     @Column(nullable = false)
-    private String password;
+    private Password password;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
