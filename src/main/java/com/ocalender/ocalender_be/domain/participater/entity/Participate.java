@@ -1,6 +1,8 @@
 package com.ocalender.ocalender_be.domain.participater.entity;
 
 
+import com.ocalender.ocalender_be.domain.member.entity.Member;
+import com.ocalender.ocalender_be.domain.schedule.Schedule;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -17,5 +19,9 @@ public class Participate {
     @Column(nullable = false, unique = true)
     private Long idx;
 
-    @
+    @ManyToOne(fetch = FetchType.LAZY)
+    Member member;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    Schedule schedule;
 }
